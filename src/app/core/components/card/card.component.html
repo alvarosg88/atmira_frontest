@@ -1,0 +1,24 @@
+<div class="atfront-card">
+  <div class="atfront-card__inner">
+    <div class="atfront-card__header">
+      <h4 class="atfront-card__title">{{ planet.title }}</h4>
+      <p>{{ planet.date }}</p>
+    </div>
+    <div *ngIf="planet.media_type === 'video'; else elseBlock">
+      <iframe
+        height="500"
+        [src]="safeMediaUrl(planet.url)"
+        [title]="planet.title"
+        frameborder="0"
+        allow="clipboard-write; encrypted-media; picture-in-picture"
+        allowfullscreen
+      ></iframe>
+    </div>
+    <ng-template #elseBlock>
+      <img [src]="planet.url" />
+    </ng-template>
+    <div class="atfront-card__footer">
+      <button class="btn fifth" routerLink="detail/{{ planet.date }}">View more</button>
+    </div>
+  </div>
+</div>

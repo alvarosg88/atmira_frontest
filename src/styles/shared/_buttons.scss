@@ -1,0 +1,95 @@
+@import '../variables';
+
+.btn {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 3px solid $primary;
+  border-radius: 0.6em;
+  color: $primary;
+  cursor: pointer;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 1.2em 2.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  width: fit-content;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+
+.fifth {
+  border-color: $primary;
+  border-radius: 0;
+  color: $primary;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: color 150ms ease-in-out;
+
+  &:after {
+    content: '';
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 100%;
+    background: $primary;
+    z-index: -1;
+    transition: width 150ms ease-in-out;
+  }
+
+  &:hover {
+    color: $secondary;
+    &:after {
+      width: 110%;
+    }
+  }
+}
+
+.ann-link--custom {
+  position: relative;
+  padding: 0.25rem;
+  text-transform: uppercase;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  align-items: center;
+  cursor: pointer;
+  color: $secondary;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 100%;
+    background: $primary;
+    z-index: 0;
+    -webkit-transition: width 0.3s ease-in-out;
+    -moz-transition: width 0.3s ease-in-out;
+    -o-transition: width 0.3s ease-in-out;
+    transition: width 0.3s ease-in-out;
+  }
+
+  span {
+    position: relative;
+    z-index: 1;
+  }
+
+  &:hover::before {
+    width: 100%;
+  }
+}

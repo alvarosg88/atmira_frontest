@@ -6,4 +6,6 @@ export abstract class CONSTANTS {
   static readonly REFRESH_TOKEN = 'refresh_token';
   static readonly USERNAME = 'username';
   static readonly PASSWORD = 'password';
+  static readonly DATE_FORMAT = 'YYYY-MM-DD';
+  static readonly CLOSE_ALERT_BTN = 'Close';
 }

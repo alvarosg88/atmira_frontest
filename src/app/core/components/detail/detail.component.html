@@ -1,0 +1,41 @@
+<div class="grid grid-cols-1 gap-4">
+  <div class="atfront-detail">
+    <div class="w-full flex">
+      <div *ngIf="planet?.url; else elseBlock" class="atfront-detail__header">
+        <div>
+          <p>{{ planet.date }}</p>
+          <h4 class="atfront-detail__title">{{ planet.title }}</h4>
+        </div>
+        <ng-template [ngIf]="planet.media_type === 'video'" [ngIfElse]="elseBlock">
+          <iframe
+            height="500"
+            [src]="safeMediaUrl(planet.url)"
+            [title]="planet.title"
+            frameborder="0"
+            allow="clipboard-write; encrypted-media; picture-in-picture"
+            allowfullscreen
+          ></iframe>
+        </ng-template>
+        <ng-template #elseBlock>
+          <img [src]="planet.url" />
+        </ng-template>
+      </div>
+      <ng-template #elseBlock>
+        <div class="atfront-detail__header">
+          <h1 class="afront-detail__error-msg">NOTHING TO SEE HERE...</h1>
+        </div>
+      </ng-template>
+      <div class="atfront-detail__body">
+        <div>
+          <div class="text-right mb-4">
+            <button class="ann-link--custom" routerLink="">
+              <span>Go back</span>
+            </button>
+          </div>
+          <p>{{ planet.explanation }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ngx-spinner color="#FCA311" type="ball-atom"> </ngx-spinner>
