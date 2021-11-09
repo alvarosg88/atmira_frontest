@@ -10,7 +10,7 @@ import { Planet } from '@core/interfaces/planet.interface';
 export class NasaService {
   constructor(private _http: HttpClient, private _snackbar: MatSnackBar) {}
 
-  public getPics(_dateRange: string): Observable<Planet | any> {
+  public getData(_dateRange: string): Observable<Planet | any> {
     return this._http.get(_dateRange).pipe(
       catchError((error) => {
         let errorMsg: string;

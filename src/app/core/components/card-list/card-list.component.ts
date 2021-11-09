@@ -50,7 +50,7 @@ export class CardListComponent implements OnInit {
 
   private loadData(_dateRange: string): void {
     this.showSpinner(this._spinner);
-    this.planets$ = this._restService.getPics(_dateRange).pipe(
+    this.planets$ = this._restService.getData(_dateRange).pipe(
       catchError((error) => {
         this.errorMsg = error.message;
         this.hideSpinner(this._spinner);

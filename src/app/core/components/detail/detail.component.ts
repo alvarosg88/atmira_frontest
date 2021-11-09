@@ -32,7 +32,7 @@ export class DetailComponent implements OnInit {
     this.showSpinner(this._spinner);
 
     this._activatedRoute.params.subscribe((params) => {
-      this._restService.getPics(`&date=${params.date}`).subscribe(
+      this._restService.getData(`&date=${params.date}`).subscribe(
         (response) => {
           this.planet = response;
           this.hideSpinner(this._spinner);
