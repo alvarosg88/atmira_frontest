@@ -1,23 +1,22 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CardListComponent } from '@core/components/card-list/card-list.component';
+import { DetailComponent } from '@core/components/detail/detail.component';
 
 const routes: Routes = [
   {
     path: '',
-    loadChildren: () => import('./features/after-login/after-login.module').then((m) => m.AfterLoginModule),
-    // change to before if session resume is not supported in your app
+    component: CardListComponent,
+    pathMatch: 'full',
   },
   {
-    path: 'after-login',
-    loadChildren: () => import('./features/after-login/after-login.module').then((m) => m.AfterLoginModule),
-  },
-  {
-    path: 'before-login',
-    loadChildren: () => import('./features/before-login/before-login.module').then((m) => m.BeforeLoginModule),
+    path: 'detail/:date',
+    component: DetailComponent,
+    pathMatch: 'prefix',
   },
   {
     path: '**',
-    redirectTo: 'after-login', // or 404 module
+    redirectTo: '',
   },
 ];
 

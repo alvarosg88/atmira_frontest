@@ -1,0 +1,94 @@
+@import '../../../../styles/variables';
+
+.atfront-detail {
+  display: flex;
+  width: 100%;
+  background: $light !important;
+  border-radius: 0.5rem;
+  box-shadow: 0 5px 15px 10px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  color: $grey;
+  overflow: hidden;
+
+  img {
+    display: initial;
+  }
+
+  .atfront-detail__header {
+    position: relative;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: white;
+    color: $primary;
+
+    & > div {
+      position: absolute;
+      padding: 2rem;
+      z-index: 2;
+    }
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: $secondary;
+      pointer-events: none;
+      opacity: 50%;
+      z-index: 1;
+    }
+
+    img {
+      position: relative;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      width: auto;
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    iframe {
+      width: 100%;
+    }
+  }
+
+  .atfront-detail__body {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    padding: 2rem;
+    background-color: white;
+
+    & > div {
+      display: block;
+    }
+
+    p {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      text-align: justify;
+    }
+  }
+
+  .atfront-detail__title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .afront-detail__error-msg {
+    font-size: 2rem;
+    font-weight: 600;
+    color: $secondary;
+  }
+}

@@ -1,10 +1,15 @@
-$primary: #ef5a5b;
-$secondary: #19273f;
+:root {
+  --primary-rgb: 252, 163, 17;
+}
+
+$primary: #fca311;
+$secondary: #14213d;
 $success: #95c602;
 $danger: #ff1717;
 $yellow: #f2b619;
-$light: #fff;
+$light: #e8e9eb;
 $dark: #000;
 $grey: #3c3d44;
+$grey2: #e5e5e5;
 
 $primary-font: 'Poppins';

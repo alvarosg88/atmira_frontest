@@ -1,15 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Planet } from '@core/interfaces/planet.interface';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
-  styleUrls: ['./card.component.scss']
+  styleUrls: ['./card.component.scss'],
 })
-export class CardComponent implements OnInit {
+export class CardComponent {
+  @Input() planet: Planet = {
+    title: '',
+    explanation: '',
+    date: '',
+    url: '',
+    hdurl: '',
+    media_type: '',
+  };
 
-  constructor() { }
+  constructor(private _domSanitizer: DomSanitizer) {}
 
-  ngOnInit(): void {
+  public safeMediaUrl(_mediaUrl: string) {
+    return this._domSanitizer.bypassSecurityTrustResourceUrl(_mediaUrl);
   }
-
 }

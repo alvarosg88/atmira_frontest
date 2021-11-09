@@ -5,21 +5,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@core/core.module';
 import { HTTPReqResInterceptor } from '@core/services/http-req-res.interceptor';
 import { environment } from '@env';
-import { LoadingBarRouterModule } from '@ngx-loading-bar/router';
+import { NasaService } from '@core/services/nasa.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    CoreModule,
-    HttpClientModule,
-    LoadingBarRouterModule,
-  ],
+  imports: [BrowserModule, BrowserAnimationsModule, AppRoutingModule, CoreModule, HttpClientModule],
   providers: [
     { provide: 'BASE_URL', useValue: environment.baseurl },
     {
@@ -27,6 +20,7 @@ import { AppComponent } from './app.component';
       useClass: HTTPReqResInterceptor,
       multi: true,
     },
+    NasaService,
   ],
   bootstrap: [AppComponent],
 })

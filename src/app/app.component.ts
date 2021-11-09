@@ -11,22 +11,16 @@ import { BroadcasterService } from '@core/services/broadcaster.service';
 })
 export class AppComponent implements OnDestroy {
   $destroy: Subject<any> = new Subject();
-  
-  constructor(private _broadcatser: BroadcasterService) {
-    
 
-    // app component broadasting
+  constructor(private _broadcatser: BroadcasterService) {
     this._broadcatser.broadcast('mykey', 'myvalue');
 
-    /**
-     * do this in other page, for e.g I'm doing here only
-     * use this service with takeUntil from rxJS and local Subject to prevent memory leaks like shown
-     */
-    this._broadcatser.listen('mykey').pipe(takeUntil(this.$destroy)).subscribe({
-      next: (data) => console.log(data), // your broadcasted value
-      
-    });
-    
+    this._broadcatser
+      .listen('mykey')
+      .pipe(takeUntil(this.$destroy))
+      .subscribe({
+        next: (data) => console.log(data),
+      });
   }
 
   ngOnDestroy() {
